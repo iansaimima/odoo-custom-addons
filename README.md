@@ -2,6 +2,7 @@ Beberapa AddOns yang sudah dicustom :
 ### Odoo Project
 #### Organize and plan your projects
 Folder : `my_project`
+
 Penambahan yang dilakukan : 
 - Pada Form Project, ada opsi `Ada Git ?` yang mana akan mempengaruhi fields pada form **Task**
 - Pada Form Task, ada dropdown `Git Branch Type` yang hanya muncul jika pada **Project** sudah centang `Ada Git ?`
