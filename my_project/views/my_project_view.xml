@@ -1,0 +1,60 @@
+<odoo>
+    <!-- FORM Modal Create -->
+    <record id="view_project_modal_form_inherit" model="ir.ui.view">
+        <field name="name">project.project.modal.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified_footer" />
+        <field name="arch" type="xml">
+            <!-- Contoh: Menambahkan field setelah 'partner_id' -->
+            <xpath expr="//field[@name='user_id']" position="before">
+                <group>
+                    <field name="x_ada_git" />
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_project_form_inherit" model="ir.ui.view">
+        <field name="name">project.project.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <!-- Contoh: Menambahkan field setelah 'partner_id' -->
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field name="x_prefix" />
+            </xpath>
+
+            <!-- Tambahkan Checkbox Setelah Field Name -->
+            <xpath expr="//field[@name='x_prefix']" position="after">
+                <field name="x_ada_git" />
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- TREE -->
+    <record id="view_project_tree_inherit" model="ir.ui.view">
+        <field name="name">project.project.tree.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="x_prefix" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- KANBAN -->
+    <record id="view_project_kanban_inherit" model="ir.ui.view">
+        <field name="name">project.project.kanban.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field name="x_prefix" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

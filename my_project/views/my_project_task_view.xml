@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_task_form_inherit" model="ir.ui.view">
+        <field name="name">project.task.form.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <!-- Contoh: Menambahkan field sebelum 'project_id' -->
+            <xpath expr="(//field[@name='project_id'])[2]" position="after">
+                <field name="x_task_id" />
+            </xpath>
+
+            <!-- Tampilkan hanya jika x_ada_git = True -->
+            <xpath expr="//field[@name='tag_ids']" position="before">
+                <field name="x_ada_git" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="x_git_branch_type" invisible="not x_ada_git" />
+                <field name="x_git_checkout_branch" invisible="not x_ada_git" />
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
